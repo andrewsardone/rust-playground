@@ -15,42 +15,30 @@ fn is_fifteen(num: int) -> bool {
 
 #[test]
 fn test_is_three_with_not_three() {
-    if is_three(1) {
-        fail!("One is not three");
-    }
+    assert!(!is_three(1))
 }
 
 #[test]
 fn test_is_three_with_three() {
-    if !is_three(3) {
-        fail!("Three should be three");
-    }
+    assert!(is_three(3))
 }
 
 #[test]
 fn test_is_five_with_not_five() {
-    if is_five(1) {
-        fail!("One is not five");
-    }
+    assert!(!is_five(1))
 }
 
 #[test]
 fn test_is_five_with_five() {
-    if !is_five(5) {
-        fail!("Five should be five");
-    }
+    assert!(is_five(5))
 }
 
 #[test]
 fn test_is_fifteen_with_not_fifteen() {
-    if is_fifteen(1) {
-        fail!("One is not fifteen");
-    }
+    assert!(!is_fifteen(1))
 }
 
 #[test]
 fn test_is_fifteen_with_fifteen() {
-    if !is_fifteen(15) {
-        fail!("Fifteen should be fifteen");
-    }
+    assert!(is_fifteen(15))
 }
