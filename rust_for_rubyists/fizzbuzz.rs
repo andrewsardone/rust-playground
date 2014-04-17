@@ -18,18 +18,10 @@ fn is_fifteen(num: int) -> bool {
 fn main() {
     for num in range(1,101) {
         println(
-            if is_fifteen(num) {
-                ~"FizzBuzz"
-            }
-            else if is_three(num) {
-                ~"Fizz"
-            }
-            else if is_five(num) {
-                ~"Buzz"
-            }
-            else {
-                num.to_str()
-            }
+            if is_fifteen(num) { ~"FizzBuzz" }
+            else if is_three(num) { ~"Fizz" }
+            else if is_five(num) { ~"Buzz" }
+            else { num.to_str() }
         );
     }
 }
