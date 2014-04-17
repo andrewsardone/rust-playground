@@ -17,7 +17,7 @@ fn is_fifteen(num: int) -> bool {
 
 fn main() {
     for num in range(1,101) {
-        let answer =
+        println(
             if is_fifteen(num) {
                 ~"FizzBuzz"
             }
@@ -29,8 +29,8 @@ fn main() {
             }
             else {
                 num.to_str()
-            };
-        println(answer)
+            }
+        );
     }
 }
 
