@@ -15,14 +15,16 @@ fn is_fifteen(num: int) -> bool {
     num % 15 == 0
 }
 
+fn fizzbuzz(num: int) -> ~str {
+    if is_fifteen(num) { ~"FizzBuzz" }
+    else if is_three(num) { ~"Fizz" }
+    else if is_five(num) { ~"Buzz" }
+    else { num.to_str() }
+}
+
 fn main() {
     for num in range(1,101) {
-        println(
-            if is_fifteen(num) { ~"FizzBuzz" }
-            else if is_three(num) { ~"Fizz" }
-            else if is_five(num) { ~"Buzz" }
-            else { num.to_str() }
-        );
+        println(fizzbuzz(num));
     }
 }
 
@@ -54,4 +56,28 @@ fn test_is_fifteen_with_not_fifteen() {
 #[test]
 fn test_is_fifteen_with_fifteen() {
     assert!(is_fifteen(15))
+}
+
+#[test]
+fn test_fizbuzz_prints_number() {
+    assert!(fizzbuzz(1) == ~"1");
+    assert!(fizzbuzz(2) == ~"2");
+}
+
+#[test]
+fn test_fizzbuzz_prints_fizz() {
+    assert!(fizzbuzz(3) == ~"Fizz");
+    assert!(fizzbuzz(9) == ~"Fizz");
+}
+
+#[test]
+fn test_fizzbuzz_prints_buzz() {
+    assert!(fizzbuzz(5) == ~"Buzz")
+    assert!(fizzbuzz(10) == ~"Buzz")
+}
+
+#[test]
+fn test_fizzbuzz_prints_fizzbuzz() {
+    assert!(fizzbuzz(15) == ~"FizzBuzz");
+    assert!(fizzbuzz(30) == ~"FizzBuzz");
 }
