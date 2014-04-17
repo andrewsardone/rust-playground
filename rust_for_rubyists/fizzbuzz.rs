@@ -1,6 +1,8 @@
 // http://www.rustforrubyists.com/book/chapter-05.html
 // Tinkering around with FizzBuzz
 
+use std::io::println;
+
 fn is_three(num: int) -> bool {
     num % 3 == 0
 }
@@ -11,6 +13,25 @@ fn is_five(num: int) -> bool {
 
 fn is_fifteen(num: int) -> bool {
     num % 15 == 0
+}
+
+fn main() {
+    for num in range(1,101) {
+        let answer =
+            if is_fifteen(num) {
+                ~"FizzBuzz"
+            }
+            else if is_three(num) {
+                ~"Fizz"
+            }
+            else if is_five(num) {
+                ~"Buzz"
+            }
+            else {
+                num.to_str()
+            };
+        println(answer)
+    }
 }
 
 #[test]
