@@ -11,15 +11,13 @@ fn is_five(num: int) -> bool {
     num % 5 == 0
 }
 
-fn is_fifteen(num: int) -> bool {
-    num % 15 == 0
-}
-
 fn fizzbuzz(num: int) -> ~str {
-    if is_fifteen(num) { ~"FizzBuzz" }
-    else if is_three(num) { ~"Fizz" }
-    else if is_five(num) { ~"Buzz" }
-    else { num.to_str() }
+    match (is_three(num), is_five(num)) {
+        (true, true) => ~"FizzBuzz",
+        (true, false) => ~"Fizz",
+        (false, true) => ~"Buzz",
+        (false, false) => num.to_str(),
+    }
 }
 
 fn main() {
@@ -46,16 +44,6 @@ fn test_is_five_with_not_five() {
 #[test]
 fn test_is_five_with_five() {
     assert!(is_five(5))
-}
-
-#[test]
-fn test_is_fifteen_with_not_fifteen() {
-    assert!(!is_fifteen(1))
-}
-
-#[test]
-fn test_is_fifteen_with_fifteen() {
-    assert!(is_fifteen(15))
 }
 
 #[test]
